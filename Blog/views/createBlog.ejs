@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include( "./partilas/css/bootstrap")%>
+    <%- include( "./partilas/js/bootstrap")%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Blog</title>
+</head>
+<body>
+    <%- include( "./partilas/compoenets/nav.ejs")%>
+    <div class="container">
+        <form  v method="post" action="/blog/create"x>
+    <div class=" my-5">
+    <h1>Create New Blog</h1>
+</div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Upload YourCover Image</label>
+          <input type="file" id="exampleInputEmail1" aria-describedby="emailHelp" name="coverImage">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Title</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" name="title">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Content</label>
+          <textarea type="password" class="form-control" id="exampleInputPassword1" name="content"></textarea>
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Create  Blog</button>
+      </form>
+  
+  
+</div>
+    
+</div>
+</body>
+</html>
