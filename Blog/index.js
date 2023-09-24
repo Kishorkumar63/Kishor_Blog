@@ -6,6 +6,7 @@ const path = require("path")
 const cookieparser=require("cookie-parser")
 const {checkFortoken}=require("./middleware/auth")
 const bp=require("body-parser")
+const commentRoutes=require("./routers/commentRoues")
 const userRouter = require("./routers/userRoutes");
 const staticRouter = require("./routers/staticRoutes");
 const blogRouter = require("./routers/blogRoutes");
@@ -16,8 +17,9 @@ mongoose.connect("mongodb://0.0.0.0:27017/k2Blog").then(() => console.log("Mongo
 //config
 
 app.set("view engine","ejs")
-app.use(express.static(path.resolve("./public")))
+
 app.set("views",path.resolve("./views"))
+app.use(express.static(path.resolve("./public")));
 
 
 //Middlware
@@ -32,6 +34,7 @@ app.use(checkFortoken)
 app.use("/user",userRouter)
 app.use("/",staticRouter)
 app.use("/blog",blogRouter)
+app.use("/comment",commentRoutes)
 
 
 

@@ -9,9 +9,21 @@
 </head>
 <body>
     <%- include( "./partilas/compoenets/nav.ejs")%>
-    <div class="container">
-    <h1>Home</h1>
-    </div>
+    <div class="container ">
+        <div class="row my-5">
+ <% blogs.forEach(blog => { %>
+    <div class="card mx-3 col" style="width: 18rem;">
+        <img src="/uploads/<%= blog.coverImage%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= blog.title.slice(0,35) %></h5>
+          
+         
+          <a href="/blog/view/<%= blog._id %>" class="btn btn-primary">View</a>
+        </div>
+      </div>
+ <% }) %>
+</div>
+
     
 </div>
 </body>
