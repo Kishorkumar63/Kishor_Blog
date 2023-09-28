@@ -1,4 +1,5 @@
 const User = require("../modles/user");
+const Blog=require("../modles/blog")
 const { generatedTokenUser } = require("../utils/auth");
 
 exports.hadleUserLogin=async(req,res)=>{
@@ -38,5 +39,16 @@ return res.cookie("token",token).redirect("/")
     })
 }
 }
+
+
+exports.renderUserBlogs=async (req,res)=>{
+            if(!req.user) return res.redirect("/login")
+        const blogs=await Blog.find ({createdBy:req.user._id})
+    return res.render("userBlogs",{
+user:req.user,
+blogs,
+    })
+    }
+
 
 

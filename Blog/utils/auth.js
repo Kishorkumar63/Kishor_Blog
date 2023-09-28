@@ -7,8 +7,9 @@ async function generatedTokenUser(id)
        const payLoad={
         _id:user._id,
     email:user.email,
-    fullName:user.fullName
-       }
+    fullName:user.fullName,
+    role:user.role,
+       };
        
        const token=jwt.sign(payLoad,JWT_SECRET)
        return token

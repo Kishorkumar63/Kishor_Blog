@@ -10,6 +10,10 @@
 <body>
     <%- include( "./partilas/compoenets/nav.ejs")%>
   <div class="container my-5">
+    <% if (locals.User && User.role === "Admin") { %>
+      <a class="btn btn-danger mb-5" href="/blog/delete/<%= blog._id%>">Delete BLog</a>
+     
+    <% } %>
     <div class="text-center">
         
         
@@ -23,10 +27,16 @@
       <% if (locals.User) { %>
         <div class="mt-4 container" >
           <label for="">Enter Your Comment</label>
-         <input type="text" id="commentInput" placeholder="enter Your Comment" class="form-control">
+         <input type="text" id="commentInput" placeholder="Enter Your Comment" class="form-control">
         <button id="btnSubmit" class=" btn btn-success my-3">Post</button>
         </div>
       <% } %>
+      <div class="container" >
+        <h1>Comments (<%=comments.length%>)</h1>
+<% comments.forEach(comment => { %>
+<span class="text-bold"><%=comment.createdBy.fullName%></span>:<%=comment.content%> <br>
+<% }) %>
+      </div>
      
       </div>
 
@@ -47,7 +57,7 @@ btn.addEventListener("click",
         },
         body:JSON.stringify({blogId,content:input.value})
       }).then(e=>window.location.reload)
-      input.value=""
+       input.value=""
     }
   </script>
 </body>

@@ -1,7 +1,7 @@
 const Blog=require("../modles/blog")
 
 exports.renderHomepage=async function(req,res){
-    const allBlogs=await Blog.find({})
+    const allBlogs=await Blog.find({}).sort({createdAt:-1})
     return res.render("home",{
         User : req.user,
         blogs:allBlogs,

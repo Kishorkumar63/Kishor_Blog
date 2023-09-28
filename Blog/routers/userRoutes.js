@@ -1,5 +1,8 @@
+const Blog=require("../modles/blog")
+
 const express=require("express");
-const { hadleUserSignup, hadleUserLogin } = require("../controller/userController");
+const { hadleUserSignup, hadleUserLogin, renderUserBlogs } = require("../controller/userController");
+const { ensureAuthenticated } = require("../middleware/auth");
 const router=express.Router();
 
 
@@ -11,7 +14,7 @@ return res.clearCookie("token").redirect("/")
 
 router.post("/login",hadleUserLogin)
 router.post("/signup",hadleUserSignup)
-
+router.get("/blogs",ensureAuthenticated,  renderUserBlogs)
 
 
 module.exports=router

@@ -5,35 +5,17 @@
     <%- include( "./partilas/js/bootstrap")%>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-      
-      .blogs-container{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap:20px;
-        grid-auto-flow: row;
-
-      }
-      @media (max-width:800px)
-      {
-        .container {
-        display: flex;
-        justify-content: center;
-      }
-      }
-    </style>
+    <title>Blog</title>
 </head>
 <body>
     <%- include( "./partilas/compoenets/nav.ejs")%>
     <div class="container ">
-        <div class="blogs-container mt-5">
+        <div class="row my-5">
  <% blogs.forEach(blog => { %>
-    <div class="card mx-3 " style="width: 18rem;">
+    <div class="card mx-3 col" style="width: 18rem;">
         <img src="/uploads/<%= blog.coverImage%>" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title"><%= blog.title.slice(0,35) %> </h5>
-          <p><%= blog.views %> View(s)</p>
+          <h5 class="card-title"><%= blog.title.slice(0,35) %></h5>
           
          
           <a href="/blog/view/<%= blog._id %>" class="btn btn-primary">View</a>

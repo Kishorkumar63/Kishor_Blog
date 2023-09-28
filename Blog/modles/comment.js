@@ -9,7 +9,7 @@ createdBy:{
     type: mongoose.Schema.Types.ObjectId,
 ref:"User",
 },
-Blog:{
+blogId:{
     type: mongoose.Schema.Types.ObjectId,
 ref:"Blog",
 },

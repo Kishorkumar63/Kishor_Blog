@@ -10,7 +10,7 @@ const commentRoutes=require("./routers/commentRoues")
 const userRouter = require("./routers/userRoutes");
 const staticRouter = require("./routers/staticRoutes");
 const blogRouter = require("./routers/blogRoutes");
-mongoose.connect("mongodb://0.0.0.0:27017/k2Blog").then(() => console.log("Mongo connect")).catch((err) => {
+mongoose.connect("mongodb://127.0.0.1:27017/k2Blog").then(() => console.log("Mongo connect")).catch((err) => {
     console.log(err);
 })
 
